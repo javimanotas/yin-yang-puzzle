@@ -18,12 +18,13 @@ Also included in the `examples` folder are the expected solutions for each puzzl
 The solutions are generated using **Clingo** and the following restrictions:
 
   - Each unknown cell must be either white or black.
-  - Taking a representative cell (the minimum lexicographically) of one color you can reach any other cell of the same color or said in another way, the cells of the same color must be adjacents one to another.
+  - The cells of the same color must be connected to each other in a single group.
+  - Cannot have a 2x2 square of cells of the same color.
 
 Additionally, for efficiency purposes, the solver includes the following restrictions to reduce the search space:
-  - Cannot have a 2x2 square of cells of the same color.
+  
   - Cannot have a 2x2 cross of cells of opposite colors.
-  - The count of changes of color pathing from the top-left corner to the bottom-right corner must be equal or less than 2.
+  - The count of changes of color, pathing the edge in a loop, must be equal or less than 2. This rule ensures that all cells of the same color that lay on the edge are connected through the edge.
 
 
 ## Usage
@@ -55,3 +56,5 @@ This project includes a **Makefile** with commands to run and test the solver. T
 
 You can also add more puzzles to the `examples` folder and use the provided commands to solve them.
 
+> [!NOTE]  
+> If you are having trouble executing you might need to create a python3 virtual enviroment.
