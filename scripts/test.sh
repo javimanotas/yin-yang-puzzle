@@ -2,7 +2,7 @@
 
 total_time=0
 
-for i in $(seq -f "%02g" 1 11); do
+for i in $(seq -f "%02g" 1 12); do
   echo "---------------------"
   echo "Running decode $i..."
   user_time=$((time make decode $i) 2>&1 | grep "user" | awk -F'm' '{print $1*60*1000 + $2*1000}' )
